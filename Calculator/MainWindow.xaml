@@ -1,0 +1,44 @@
+﻿<Window x:Class="Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="430" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Text="0" FontSize="30" TextAlignment="Right" Padding="5 25"></TextBlock>
+        <Button Grid.Row="1" Grid.Column="0" FontSize="20">/</Button>
+        <Button Grid.Row="1" Grid.Column="1" FontSize="20">*</Button>
+        <Button Grid.Row="2" Grid.Column="0"  FontSize="20" Foreground="Red">7</Button>
+        <Button Grid.Row="2" Grid.Column="1" FontSize="20" Foreground="Red">8</Button>
+        <Button Grid.Row="2" Grid.Column="2" FontSize="20" Foreground="Red">9</Button>
+        <Button Grid.Row="2" Grid.Column="3" FontSize="20">+</Button>
+        <Button Grid.Row="3" Grid.Column="0" FontSize="20" Foreground="Red">4</Button>
+        <Button Grid.Row="3" Grid.Column="1" FontSize="20" Foreground="Red">5</Button>
+        <Button Grid.Row="3" Grid.Column="2" FontSize="20" Foreground="Red">6</Button>
+        <Button Grid.Row="3" Grid.Column="3" FontSize="20">-</Button>
+        <Button Grid.Row="4" Grid.Column="0" FontSize="20" Foreground="Red">1</Button>
+        <Button Grid.Row="4" Grid.Column="1" FontSize="20" Foreground="Red">2</Button>
+        <Button Grid.Row="4" Grid.Column="2" FontSize="20" Foreground="Red">3</Button>
+        <Button Grid.Row="4" Grid.Column="3" FontSize="20">=</Button>
+        <Button Grid.Row="5" Grid.Column="0" FontSize="20" Foreground="Red">0</Button>
+        <Button Grid.Row="5" Grid.Column="1" FontSize="20">.</Button>
+        <Button Grid.Row="5" Grid.Column="2" FontSize="20">ce</Button>
+        <Button Grid.Row="5" Grid.Column="3" FontSize="20">C</Button>
+    </Grid>
+</Window>
