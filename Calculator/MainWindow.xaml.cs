@@ -20,12 +20,11 @@ namespace Calculator
     /// </summary>
     public partial class MainWindow : Window
     {
-        enum operation {None, Add, Subtract, Multiply, Divide};
+        enum operation {None, Plus, Minus, Multiply, Divide, Equals};
         double currentNumber;
         double previousNumber;
         int decimalPlaces;
         char operationChar;
-        bool enteringSecondNumber;
         operation currentOperation;
 
         public MainWindow()
@@ -39,7 +38,6 @@ namespace Calculator
             currentNumber = 0;
             previousNumber = 0;
             decimalPlaces = 0;
-            enteringSecondNumber = false;
             currentOperation = operation.None;
             DisplayArea.Text = currentNumber.ToString();
         }
@@ -62,37 +60,55 @@ namespace Calculator
         }
         private void PlusButton(object sender, RoutedEventArgs e)
         {
-            currentOperation = operation.Add;
             operationChar = '+';
-            Equals();
-            previousNumber = currentNumber;
-            currentNumber = 0;
+            Equals(operation.Plus);
+        }
+        private void MinusButton(object sender, RoutedEventArgs e)
+        {
+            operationChar = '-';
+            Equals(operation.Minus);
+        }
+        private void MultiplyButton(object sender, RoutedEventArgs e)
+        {
+            operationChar = '*';
+            Equals(operation.Multiply);
+        }
+        private void DivideButton(object sender, RoutedEventArgs e)
+        {
+            operationChar = '/';
+            Equals(operation.Divide);
         }
         private void EqualsButton(object sender, RoutedEventArgs e)
         {
-            Equals();
-            currentOperation = operation.None;
-            UpdateDisplay();
+            Equals(operation.Equals);
         }
-        private void Equals()
+        private void Equals(operation nextOp)
         {
             switch (currentOperation)
             {
-                case operation.Add:
-                    currentNumber = previousNumber + currentNumber;
+                case operation.None:
+                    previousNumber = currentNumber;
                     break;
-                case operation.Subtract:
-                    currentNumber = previousNumber - currentNumber;
+                case operation.Equals:
+                    break;
+                case operation.Plus:
+                    previousNumber = previousNumber + currentNumber;
+                    break;
+                case operation.Minus:
+                    previousNumber = previousNumber - currentNumber;
                     break;
                 case operation.Multiply:
-                    currentNumber = previousNumber * currentNumber;
+                    previousNumber = previousNumber * currentNumber;
                     break;
                 case operation.Divide:
-                    currentNumber = previousNumber / currentNumber;
-                    return;
+                    previousNumber = previousNumber / currentNumber;
+                    break;
             }
-            previousNumber = 0;
+            if (currentOperation != operation.Equals)
+                currentNumber = 0;
             decimalPlaces = 0;
+            currentOperation = nextOp;
+            UpdateDisplay();
         }
         private void Number0(object sender, RoutedEventArgs e)
         {
@@ -150,6 +166,8 @@ namespace Calculator
         {
             if (currentOperation == operation.None)
                 DisplayArea.Text = currentNumber.ToString();
+            else if (currentOperation == operation.Equals)
+                DisplayArea.Text = previousNumber.ToString();
             else
                 DisplayArea.Text = previousNumber.ToString() + ' ' + operationChar + ' ' + currentNumber.ToString();
         }
