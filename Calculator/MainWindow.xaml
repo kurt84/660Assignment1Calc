@@ -24,19 +24,21 @@
         <TextBlock Name="DisplayArea" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" FontSize="30" TextAlignment="Right" Padding="5 25"></TextBlock>
         <Button Grid.Row="1" Grid.Column="0" FontSize="20" Click="DivideButton">/</Button>
         <Button Grid.Row="1" Grid.Column="1" FontSize="20" Click="MultiplyButton">*</Button>
-        <Button Grid.Row="2" Grid.Column="0"  FontSize="20" Foreground="Red" Click="Number7">7</Button>
-        <Button Grid.Row="2" Grid.Column="1" FontSize="20" Foreground="Red" Click="Number8">8</Button>
-        <Button Grid.Row="2" Grid.Column="2" FontSize="20" Foreground="Red" Click="Number9">9</Button>
+        <Button Grid.Row="1" Grid.Column="2" FontSize="20" Click="RootButton">sqrt</Button>
+        <Button Grid.Row="1" Grid.Column="3" FontSize="20" Click="FactorialButton">!</Button>
+        <Button Grid.Row="2" Grid.Column="0"  FontSize="20" Foreground="Blue" Click="Number7">7</Button>
+        <Button Grid.Row="2" Grid.Column="1" FontSize="20" Foreground="Blue" Click="Number8">8</Button>
+        <Button Grid.Row="2" Grid.Column="2" FontSize="20" Foreground="Blue" Click="Number9">9</Button>
         <Button Grid.Row="2" Grid.Column="3" FontSize="20" Click="PlusButton">+</Button>
-        <Button Grid.Row="3" Grid.Column="0" FontSize="20" Foreground="Red" Click="Number4">4</Button>
-        <Button Grid.Row="3" Grid.Column="1" FontSize="20" Foreground="Red"  Click="Number5">5</Button>
-        <Button Grid.Row="3" Grid.Column="2" FontSize="20" Foreground="Red"  Click="Number6">6</Button>
+        <Button Grid.Row="3" Grid.Column="0" FontSize="20" Foreground="Blue" Click="Number4">4</Button>
+        <Button Grid.Row="3" Grid.Column="1" FontSize="20" Foreground="Blue"  Click="Number5">5</Button>
+        <Button Grid.Row="3" Grid.Column="2" FontSize="20" Foreground="Blue"  Click="Number6">6</Button>
         <Button Grid.Row="3" Grid.Column="3" FontSize="20" Click="MinusButton">-</Button>
-        <Button Grid.Row="4" Grid.Column="0" FontSize="20" Foreground="Red" Click="Number1">1</Button>
-        <Button Grid.Row="4" Grid.Column="1" FontSize="20" Foreground="Red" Click="Number2">2</Button>
-        <Button Grid.Row="4" Grid.Column="2" FontSize="20" Foreground="Red" Click="Number3">3</Button>
+        <Button Grid.Row="4" Grid.Column="0" FontSize="20" Foreground="Blue" Click="Number1">1</Button>
+        <Button Grid.Row="4" Grid.Column="1" FontSize="20" Foreground="Blue" Click="Number2">2</Button>
+        <Button Grid.Row="4" Grid.Column="2" FontSize="20" Foreground="Blue" Click="Number3">3</Button>
         <Button Grid.Row="4" Grid.Column="3" FontSize="20" Click="EqualsButton">=</Button>
-        <Button Grid.Row="5" Grid.Column="0" FontSize="20" Foreground="Red" Click="Number0">0</Button>
+        <Button Grid.Row="5" Grid.Column="0" FontSize="20" Foreground="Blue" Click="Number0">0</Button>
         <Button Grid.Row="5" Grid.Column="1" FontSize="20" Click="Decimal">.</Button>
         <Button Grid.Row="5" Grid.Column="2" FontSize="20" Click="ClearEntry">ce</Button>
         <Button Grid.Row="5" Grid.Column="3" FontSize="20" Click="Clear">C</Button>

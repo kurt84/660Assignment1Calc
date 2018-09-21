@@ -20,7 +20,7 @@ namespace Calculator
     /// </summary>
     public partial class MainWindow : Window
     {
-        enum operation {None, Plus, Minus, Multiply, Divide, Equals};
+        enum operation {None, Plus, Minus, Multiply, Divide, Equals, Root, Factorial, Error};
         double currentNumber;
         double previousNumber;
         int decimalPlaces;
@@ -103,6 +103,12 @@ namespace Calculator
                 case operation.Divide:
                     previousNumber = previousNumber / currentNumber;
                     break;
+                case operation.Factorial:
+                    previousNumber = Factorial(previousNumber);
+                    break;
+                case operation.Root:
+                    previousNumber = Math.Sqrt(previousNumber);
+                    break;
             }
             if (currentOperation != operation.Equals)
                 currentNumber = 0;
@@ -164,12 +170,57 @@ namespace Calculator
         }
         private void UpdateDisplay()
         {
-            if (currentOperation == operation.None)
+            if (currentOperation == operation.Error)
+            {
+                InitializeCalculator();
+                DisplayArea.Text = "Error";
+            }
+                
+            else if (currentOperation == operation.None)
                 DisplayArea.Text = currentNumber.ToString();
             else if (currentOperation == operation.Equals)
                 DisplayArea.Text = previousNumber.ToString();
             else
                 DisplayArea.Text = previousNumber.ToString() + ' ' + operationChar + ' ' + currentNumber.ToString();
+        }
+
+        private void RootButton(object sender, RoutedEventArgs e)
+        {
+            Equals(operation.Root);
+            if (previousNumber < 0)
+            {
+                InitializeCalculator();
+                currentOperation = operation.Error;
+                UpdateDisplay();
+            }
+            else
+            {
+                Equals(operation.Equals);
+            }
+
+
+        }
+        private void FactorialButton(object sender, RoutedEventArgs e)
+        {
+            Equals(operation.Factorial);
+            if (previousNumber % 1 > 0 || previousNumber < 0)
+            {
+                InitializeCalculator();
+                currentOperation = operation.Error;
+                UpdateDisplay();
+            }
+            else
+            {
+                Equals(operation.Equals);
+            }
+        }
+
+        private double Factorial(double num)
+        {
+            if (num > 1)
+                return num * Factorial(num - 1);
+            else
+                return 1;
         }
     }
 }
